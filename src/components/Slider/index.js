@@ -40,14 +40,15 @@ export default function Slider({ seeingVideo, setSeeingVideo }) {
                 if (seeingInfo || seeingVideo.sliderVideo) return;
                 startSliderInterval()
             }}
-            style={{ width: `calc(100vw*${games.length})` }}
-            className="h-[25em] md:h-[35em] relative">
+            
+            style={{ width: `calc(100vw*${games.length})`,overflowX:"hidden" }}
+            className=" h-[25em] md:h-[35em] relative">
             <Warning seeingInfo={seeingInfo} seeingVideo={seeingVideo} showWarning={showWarning} setShowWarning={setShowWarning} />
             {seeingVideo.sliderVideo && <PlayerDeVideo games={games} index={index} seeingVideo={seeingVideo} setSeeingVideo={setSeeingVideo} />}
 
-            <div className="absolute z-[51] w-screen h-full flex justify-end">
+            <div  className="absolute z-[51] w-screen h-full flex justify-end">
                 {/* Controls */}
-                <div className="flex px-3 flex-col justify-center items-end h-full space-y-2">
+                <div  className="flex px-3 flex-col justify-center items-end h-full space-y-2">
                     <button
                         title={seeingInfo ? "Fechar informação" : "Ver Informação"}
                         className=" bg-white text-center bg-opacity-30 hover:bg-opacity-100 transition-all rounded-tl-lg rounded-bl-lg py-4 px-8 "
