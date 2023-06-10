@@ -4,8 +4,8 @@ export default function Footer() {
     const pathLogoSony = "/assets/images/icons/ps-bug.svg"
     const pathSie = "/assets/images/icons/sie.svg"
     return (
-        <footer className="text-white flex flex-wrap justify-center py-10 px-30 space-x-10 md:px-60">
-            <div className="flex-1">
+        <footer className="text-white flex flex-wrap justify-center py-10 px-20  space-y-10 md:space-x-10 flex-col items-center  md:flex-row md:px-60">
+            <div className="flex-1 flex flex-col ">
                 {/* Left */}
                 <div className="mb-10 space-y-2">
                     <Image src={pathLogoSony} width={40} height={40} />
@@ -15,12 +15,11 @@ export default function Footer() {
                     <Image src={pathSie} width={100} height={100} />
                     <span className="text-sm font-light">© 2021 Sony Interactive Entertainment LLC</span>
                 </div>
-
             </div>
             <div className="flex-1">
                 {/* Right */}
-                <div className="flex space-x-10">
-                    <ul className="flex flex-col font-light text-xs space-y-2">
+                <div className="flex space-x-10 justify-center items-center flex-wrap">
+                    <ul className="flex flex-1 flex-col font-light text-xs space-y-2">
                         <li>Suporte</li>
                         <li>Política de privacidade</li>
                         <li>Termos de serviço</li>
@@ -29,7 +28,7 @@ export default function Footer() {
                         <li>Sobre a SIE</li>
                         <li>PlayStation e o meio ambiente</li>
                     </ul>
-                    <ul className="flex flex-col font-light text-xs space-y-2">
+                    <ul className="flex flex-1 flex-col font-light text-xs space-y-2">
                         <li>Termos de serviço e contrato do usuário</li>
                         <li>Política de cancelamento da PS ™Store</li>
                         <li>Avisos sobre saúde</li>
@@ -38,7 +37,7 @@ export default function Footer() {
                         <li>Desenvolvedores</li>
                         <li>Mapa do Site</li>
                     </ul>
-                    <ul className="flex flex-col font-light text-xs space-y-2">
+                    <ul className="flex flex-1 flex-col font-light text-xs space-y-2">
                         <li>Facebook</li>
                         <li>Twitter</li>
                         <li>YouTube</li>

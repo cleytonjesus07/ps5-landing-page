@@ -43,7 +43,7 @@ export default function Slider({ seeingVideo, setSeeingVideo }) {
 
             style={{ width: `calc(100vw*${games.length})`, overflowX: "hidden" }}
             className=" h-[25em] md:h-[35em] relative">
-            <Warning seeingInfo={seeingInfo} seeingVideo={seeingVideo} showWarning={showWarning} setShowWarning={setShowWarning} />
+            {seeingVideo.sliderVideo ? <Warning message={"Só é permitido apenas ser executado um vídeo por vez"} showWarning={showWarning} setShowWarning={setShowWarning} /> : seeingInfo && <Warning message={" 'X' <- para fechar o container informativo "} showWarning={showWarning} setShowWarning={setShowWarning} />}
             {seeingVideo.sliderVideo && <PlayerDeVideo games={games} index={index} seeingVideo={seeingVideo} setSeeingVideo={setSeeingVideo} />}
 
             <div className="absolute z-[51] w-screen h-full flex justify-end">
@@ -64,7 +64,9 @@ export default function Slider({ seeingVideo, setSeeingVideo }) {
                             if (seeingVideo.ps5InfoVideo) return;
                             setSeeingVideo({ ...seeingVideo, sliderVideo: !seeingVideo.sliderVideo })
                         }}
-                        className=" bg-white text-center bg-opacity-30 hover:bg-opacity-100 transition-all rounded-tl-lg rounded-bl-lg py-4 px-8">
+                        className=" bg-white text-center bg-opacity-30 hover:bg-opacity-100 transition-all rounded-tl-lg rounded-bl-lg py-4 px-8 disabled:hidden"
+                        disabled={seeingVideo.ps5InfoVideo ? true : false}
+                        >
                         {seeingVideo.sliderVideo ? <AiOutlineEyeInvisible className="icon" /> : <AiOutlineEye className="icon" />}
                     </button>
                 </div>
@@ -140,7 +142,26 @@ function PlayerDeVideo({ games, index, seeingVideo, setSeeingVideo }) {
     )
 }
 
-function Warning({ seeingInfo, seeingVideo, showWarning, setShowWarning }) {
+function Warning({ message, showWarning, setShowWarning }) {
+    return (
+        <div className={`from-blue-700 to-blue-600 bg-gradient-to-r  shadow-lg   select-none max-w-xs fixed top-0  z-[53] overflow-hidden   rounded-lg m-2 font-bold text-xs text-white transition-all ease-linear duration-100  ${showWarning ? "right-0" : "-right-96"}`}>
+            <span className="flex items-center justify-center p-2">
+                <BsInfoLg style={{ width: 50, height: 50, marginRight: 10 }} />
+                {message}
+            </span>
+            <button
+                className="flex items-center bg-white w-full p-4 justify-center md:p-2  text-blue-500 "
+                onClick={() => {
+                    setShowWarning(false);
+                }}
+            >
+                OK
+            </button>
+        </div>
+    )
+}
+
+/* function Warning({ seeingInfo, seeingVideo, showWarning, setShowWarning }) {
     return (
         <>
             {(seeingInfo || seeingVideo.sliderVideo) && (
@@ -189,4 +210,4 @@ function Warning({ seeingInfo, seeingVideo, showWarning, setShowWarning }) {
             )}
         </>
     )
-}
+} */

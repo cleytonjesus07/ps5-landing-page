@@ -74,7 +74,8 @@ export default function Banner({ seeingVideo, setSeeingVideo }) {
                         )
                         :
                         (
-                            <button className="py-4 px-8 border-l-2 border-t-2 border-gray-500 rounded-lg"
+                            <button className={`py-4 px-8 border-l-2 border-t-2 border-gray-500 rounded-lg disabled:hidden`}
+                                disabled={seeingVideo.sliderVideo ? true : false}
                                 onMouseEnter={({ target }) => {
                                     target.classList.add("css-selector");
                                 }}
