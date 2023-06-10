@@ -5,11 +5,12 @@ import TopHeader from "@/components/TopHeader";
 import Specs from "@/components/Specs";
 import Slider from "@/components/Slider";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [seeingVideo, setSeeingVideo] = useState({
-    sliderVideo:false,
-    ps5InfoVideo:false
+    sliderVideo: false,
+    ps5InfoVideo: false
   });
   return (
     <main>
@@ -18,6 +19,7 @@ export default function Home() {
       <Banner seeingVideo={seeingVideo} setSeeingVideo={setSeeingVideo} />
       <Specs />
       <Slider seeingVideo={seeingVideo} setSeeingVideo={setSeeingVideo} />
+      <Footer />
     </main>
   )
 }
