@@ -17,7 +17,7 @@ export const informations = [
             Domine o poder de uma CPU e GPU personalizadas e o SSD com E/S integradas que redefinem as regras do que o console PlayStation pode fazer.
         </p>
     </div>,
-    <div className="flex absolute">
+    <div className="flex flex-wrap absolute">
         <div className="flex-1 flex flex-col justify-center items-center">
             <Image src={ssdImage}
                 width={50}
